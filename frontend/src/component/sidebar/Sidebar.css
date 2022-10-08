@@ -1,0 +1,46 @@
+/*    #18606c    #09252a    */
+
+.hello h1 {
+    color: red;
+}
+
+.customr-color {
+    /* background-color: #41547e; */
+    background-color: white;
+}
+
+.sidenav {
+    background-color: #484c7f;
+}
+
+.font-weight-bold {
+    color: #09252a;
+}
+
+.logo-text-color {
+    color: #ddd4d4;
+}
+
+.logo-text-color:hover {
+    color: #F19828;
+}
+
+.text-white {
+    color: #ddd4d4 !important;
+}
+
+.text-white:hover {
+    color: #F19828 !important;
+}
+
+.text-white::before {
+    color: #ddd4d4 !important;
+}
+
+.nav-link:before {
+    color: #ddd4d4 !important;
+}
+
+.navbar-vertical.navbar-expand-xs .navbar-nav .nav-link {
+    margin: 0px 0 0 4px;
+}

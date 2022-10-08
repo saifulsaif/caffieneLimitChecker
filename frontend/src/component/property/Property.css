@@ -1,0 +1,77 @@
+.building-cover-first {
+    background-image: url('http://localhost:3000/assets/img/building/img2.jpg');
+}
+
+.building-cover-second {
+    background-image: url('http://localhost:3000/assets/img/building/img4.png');
+}
+
+.building-name {
+    margin-top: 0px;
+}
+
+.building-address {
+    margin-bottom: 0px;
+}
+
+.card {
+    box-shadow: 0 9px 15px 0 rgb(0 0 0 / 35%);
+    margin: 10px 0 10px 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.border {
+    height: 80% !important;
+    width: 100% !important;
+    background-color: #484c7f;
+}
+
+.rounded-circle {
+    /* border-radius: 50% !important; */
+}
+
+.border-profile {
+    width: 100%;
+    height: 189px;
+    border-radius: 0.5rem;
+}
+
+.floor-text {
+    color: white;
+    font-size: xx-large;
+    font-family: sans-serif;
+}
+
+.badge {
+    height: 20px;
+    width: 20px;
+}
+
+.bg-gradient-floor {
+    background-image: linear-gradient(270deg, #ffffff 4%, #484c7f 100%);
+}
+
+.add-floor-card {
+    padding: 17px 20px 0px 15px !important;
+}
+
+.add-renter {
+    cursor: pointer;
+}
+
+.check-icon {
+    background-color: #4caf50;
+    color: white;
+    padding: 2px;
+    border-radius: 22%;
+}
+
+.icon-xs i {
+    top: 2px;
+    font-size: .5rem;
+}

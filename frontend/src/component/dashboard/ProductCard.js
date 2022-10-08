@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+const api_url = process.env.REACT_APP_API_URL;
 
 const ProductCard = () => {
+  const [products, setProducts] = useState("");
+
+  useEffect(() => {
+    axios.get(api_url + "/products").then((res) => {
+      console.log(res);
+      setProducts(res.data);
+    });
+  }, []);
+
   return (
     <div>
       <div className="row">

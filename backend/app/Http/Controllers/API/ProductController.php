@@ -12,7 +12,8 @@ class ProductController extends Controller
     public function getProducts()
     {
         $url = URL::to('/');
-        $products = Product::get()->map(function ($product) use ($url) {
+        $products = Product::get()
+        ->map(function ($product) use ($url) {
             $product->image = $url . '/' . $product->image;
             return $product;
         });

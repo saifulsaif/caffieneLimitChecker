@@ -1,7 +1,10 @@
 <?php
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/test', function () {
+    return response()->json([
+        'success' => true,
+        'message' => 'Test API'
+    ]);
 });
+
+
+Route::get('/user',[UserController::class,'user']);
+
+Route::get('/products',[ProductController::class,'getProducts']);
+
+

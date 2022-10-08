@@ -15,7 +15,7 @@ const ProductCard = () => {
                 <div className="add-to-wish">
                   <button className="btn btn-wish">
                     {" "}
-                    <i className="fa fa-plus"></i> Add
+                    <i className="fa fa-cart-plus"></i> Add
                   </button>
                 </div>
               </div>
@@ -38,7 +38,7 @@ const ProductCard = () => {
                 <div className="add-to-wish">
                   <button className="btn btn-wish">
                     {" "}
-                    <i className="fa fa-plus"></i> Add
+                    <i className="fa fa-cart-plus"></i> Add
                   </button>
                 </div>
               </div>
@@ -61,7 +61,7 @@ const ProductCard = () => {
                 <div className="add-to-wish">
                   <button className="btn btn-wish">
                     {" "}
-                    <i className="fa fa-cart"></i> Add
+                    <i className="fa fa-cart-plus"></i> Add
                   </button>
                 </div>
               </div>

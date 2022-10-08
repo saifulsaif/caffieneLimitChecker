@@ -144,6 +144,12 @@ const Home = () => (
                   <td>
                     <b>50gm</b>
                   </td>
+                  <td>
+                    <a href="#">
+                      {" "}
+                      <i className="fa fa-times text-red"></i>
+                    </a>
+                  </td>
                 </tr>
                 <tr>
                   <td>

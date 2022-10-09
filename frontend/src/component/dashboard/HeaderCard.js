@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const HeaderCard = () => {
+const HeaderCard = (props) => {
   return (
     <div>
       <div class="row">
@@ -10,6 +10,7 @@ const HeaderCard = () => {
             <div class="card-body p-3">
               <div class="row">
                 <div class="col-8">
+                  s
                   <div class="numbers">
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">
                       Today's Money

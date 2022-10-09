@@ -90,9 +90,10 @@ table {
 }
 
 .wish-card img {
-    height: 40px;
-    width: 56px;
-    margin-top: 5px;
+    height: 53px;
+        width: 80px;
+        margin-top: 0px;
+        margin-bottom: 7px;
 }
 
 .btn-wish {

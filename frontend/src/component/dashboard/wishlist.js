@@ -1,5 +1,20 @@
-const Wishlist = (props) => {
-  var total_cal = props.total;
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+const api_url = process.env.REACT_APP_API_URL;
+
+const Wishlist = () => {
+  const [wish, setWish] = useState([]);
+
+  useEffect(() => {
+    axios.get(api_url + "/wish_list").then((res) => {
+      setWish(res.data.data);
+    });
+  }, []);
+
+  var total_caff = 0;
+  wish.map((wish) => {
+    total_caff += wish.qty * wish.caffiene;
+  });
 
   return (
     <div className="card wish-card mt-md-0 mt-5">
@@ -7,7 +22,7 @@ const Wishlist = (props) => {
       <hr></hr>
       <table responsive>
         <tbody>
-          {props.item.map((wish) => (
+          {wish.map((wish) => (
             <tr>
               <td>
                 <img class="card-img-top" src={wish.image} />
@@ -29,7 +44,7 @@ const Wishlist = (props) => {
           <tr>
             <td colSpan={4}>Total Consume</td>
             <td>
-              <b>{total_cal}gm</b>
+              <b>{total_caff}gm</b>
             </td>
           </tr>
         </tbody>

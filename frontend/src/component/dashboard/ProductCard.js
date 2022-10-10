@@ -2,6 +2,8 @@ import axios from "axios";
 const api_url = process.env.REACT_APP_API_URL;
 
 const ProductCard = (props) => {
+
+
   const addToWish = (product_id) => {
     let data = { product_id: product_id, qty: 1 };
     axios.post(api_url + "/store_wish", data).then((res) => {
@@ -11,6 +13,8 @@ const ProductCard = (props) => {
 
   var consume = Math.floor(props.limit / props.item.caffiene);
   var disabled = consume ? false : true;
+
+
   return (
     <div className="col-md-4 col-ms-6">
       <div class="product-card">

@@ -10,6 +10,7 @@ const ProductCard = (props) => {
   };
 
   var consume = Math.floor(props.limit / props.item.caffiene);
+  consume = consume <= 0 ? 0 : consume;
   var disabled = consume ? false : true;
   return (
     <div className="col-md-4 col-ms-6">

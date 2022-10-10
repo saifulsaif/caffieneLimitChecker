@@ -1,4 +1,7 @@
 const ProductCard = (props) => {
+  const addToWish = () => {
+    alert("Great Shot!");
+  };
   return (
     <div className="col-md-4 col-ms-6">
       <div class="product-card">
@@ -9,7 +12,7 @@ const ProductCard = (props) => {
               <span>{props.item.caffiene}gm</span>
             </div>
             <div className="add-to-wish">
-              <button className="btn btn-wish">
+              <button className="btn btn-wish" onClick={addToWish}>
                 {" "}
                 <i className="fa fa-cart-plus"></i> Add
               </button>

@@ -4,6 +4,7 @@ import ProductCard from "../component/dashboard/ProductCard";
 import axios from "axios";
 import Profile from "../component/dashboard/Profile";
 import Wishlist from "../component/dashboard/wishlist";
+import HeaderCard from "../component/dashboard/HeaderCard";
 const api_url = process.env.REACT_APP_API_URL;
 
 const Home = () => {
@@ -61,66 +62,26 @@ const Home = () => {
       </div>
       <div className="container">
         <div className="row mt-4">
-          <div className="col-md-3">
-            <div className="header-card">
-              <div className="header-card-title">
-                <p>{limit} gm</p>
-                <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">
-                  <span class="font-weight-normal text-secondary">
-                    User Caffiene Limit
-                  </span>
-                </span>
-              </div>
-              <div className="header-card-icon">
-                <i className="fa fa-send"></i>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="header-card">
-              <div className="header-card-title">
-                <p>{comlimit} gm</p>
-                <span class="text-sm text-end text-success font-weight-bolder mt-auto mb-0">
-                  <span class="font-weight-normal text-secondary">
-                    You have consume
-                  </span>
-                </span>
-              </div>
-              <div className="header-card-icon">
-                <i className="fa fa-file"></i>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="header-card">
-              <div className="header-card-title">
-                <p>{limit} gm</p>
-                <span className="text-sm text-end text-success font-weight-bolder mt-auto mb-0">
-                  <span className="font-weight-normal text-secondary">
-                    Remining Caffiene
-                  </span>
-                </span>
-              </div>
-              <div className="header-card-icon">
-                <i className="fa fa-user"></i>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="header-card">
-              <div className="header-card-title">
-                <p>Good</p>
-                <span className="text-sm text-end text-success font-weight-bolder mt-auto mb-0">
-                  <span className="font-weight-normal text-secondary">
-                    Limit Status
-                  </span>
-                </span>
-              </div>
-              <div className="header-card-icon">
-                <i className="fa fa-user"></i>
-              </div>
-            </div>
-          </div>
+          <HeaderCard
+            limit={limit}
+            title={"User Caffiene Limit"}
+            icon={"fa fa-send"}
+          />
+          <HeaderCard
+            limit={comlimit}
+            title={"You have consume"}
+            icon={"fa fa-file"}
+          />
+          <HeaderCard
+            limit={limit}
+            title={" Remining Caffiene"}
+            icon={"fa fa-user"}
+          />
+          <HeaderCard
+            limit={"Good"}
+            title={" Limit Status"}
+            icon={"fa fa-user"}
+          />
         </div>
         <div className="row mt-4">
           <div className="col-md-3 col-ms-12">

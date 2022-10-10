@@ -29,4 +29,8 @@ Route::get('/user',[UserController::class,'user']);
 
 Route::get('/products',[ProductController::class,'getProducts']);
 
+Route::get('/wish_list', [ProductController::class, 'getWishList']);
+
+Route::post('/store_wish', [ProductController::class, 'storeWish']);
+
 

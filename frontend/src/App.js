@@ -6,7 +6,6 @@ import OverviewCard from "./pages/OverviewCard";
 function App() {
   const [caffiene, setCaffiene] = useState(0);
   const getData = (data) => {
-    console.log(data);
     setCaffiene(data);
   };
 

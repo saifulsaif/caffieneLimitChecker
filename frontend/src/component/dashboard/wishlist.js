@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-
 const Wishlist = (props) => {
   var total_caff = 0;
   props.wish.map((wish) => {

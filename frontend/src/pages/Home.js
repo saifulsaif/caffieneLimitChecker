@@ -10,18 +10,41 @@ const api_url = process.env.REACT_APP_API_URL;
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [profile, setProfile] = useState([]);
+  const [wish, setWish] = useState([]);
+
   const [limit, setLimit] = useState(300);
-  const [comlimit, setComLimit] = useState(0);
 
   useEffect(() => {
     axios.get(api_url + "/products").then((res) => {
       setProducts(res.data.data);
     });
+
     axios.get(api_url + "/user").then((res) => {
       setProfile(res.data.data);
       setLimit(res.data.data.c_limit);
     });
+
+    axios.get(api_url + "/wish_list").then((res) => {
+      setWish(res.data.data);
+    });
   }, []);
+
+  var total_caff = 0;
+  var process_color = "progress-bar bg-success";
+  var status = "Excelent";
+  wish.map((wish) => {
+    total_caff += wish.qty * wish.caffiene;
+  });
+
+  var process = (100 / limit) * total_caff;
+  var remmining_limit = limit - total_caff;
+  if (process >= 60 && process < 80) {
+    process_color = "progress-bar bg-warning";
+    status = "Over";
+  } else if (process >= 80) {
+    process_color = "progress-bar bg-danger";
+    status = "Risky";
+  }
 
   return (
     <div>
@@ -31,54 +54,36 @@ const Home = () => {
         </div>
         <div class="progress">
           <div
-            class="progress-bar"
+            class={process_color}
             role="progressbar"
-            style={{ width: 15 + "%" }}
-            aria-valuenow="15"
+            style={{ width: process + "%" }}
+            aria-valuenow={process}
             aria-valuemin="0"
-            aria-valuemax="100"
+            aria-valuemax={limit}
           >
-            15 % Coffee
+            Caffiene {process} %
           </div>
-          <div
-            class="progress-bar bg-success"
-            role="progressbar"
-            style={{ width: 30 + "%" }}
-            aria-valuenow="30"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          >
-            30% Coke
-          </div>
-          <div
-            class="progress-bar bg-info"
-            role="progressbar"
-            style={{ width: 25 + "%" }}
-            aria-valuenow="20"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
         </div>
       </div>
       <div className="container">
         <div className="row mt-4">
           <HeaderCard
-            limit={limit}
+            limit={limit + "gm"}
             title={"User Caffiene Limit"}
             icon={"fa fa-send"}
           />
           <HeaderCard
-            limit={comlimit}
+            limit={total_caff + "gm"}
             title={"You have consume"}
             icon={"fa fa-file"}
           />
           <HeaderCard
-            limit={limit}
+            limit={remmining_limit + "gm"}
             title={" Remining Caffiene"}
             icon={"fa fa-user"}
           />
           <HeaderCard
-            limit={"Good"}
+            limit={status}
             title={" Limit Status"}
             icon={"fa fa-user"}
           />
@@ -86,76 +91,16 @@ const Home = () => {
         <div className="row mt-4">
           <div className="col-md-3 col-ms-12">
             <Profile item={profile} />
-            <div className="card wish-card mt-md-0 mt-5">
-              <h5>Favorite Caffienes</h5>
-              <hr></hr>
-              <table responsive>
-                <tbody>
-                  <tr>
-                    <td>
-                      <img
-                        class="card-img-top"
-                        src="../assets/img/black-coffee.jpeg"
-                      />
-                    </td>
-                    <td>Balck coffee 0001</td>
-                    <td>
-                      <b>50gm</b>
-                    </td>
-                    <td>
-                      <a href="#">
-                        {" "}
-                        <i className="fa fa-times text-red"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img
-                        class="card-img-top"
-                        src="../assets/img//black-coffee-1.jpg"
-                      />
-                    </td>
-                    <td>Balck coffee 0001</td>
-                    <td>
-                      <td>
-                        <b>50gm</b>
-                      </td>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="card-img-top" src="../assets/img/nos.jpeg" />
-                    </td>
-                    <td>Balck coffee 0001</td>
-                    <td>
-                      <b>50gm</b>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colSpan={3}>
-                      <hr style={{ margin: 0 + "px" }}></hr>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colSpan={2}>Total Consume</td>
-                    <td>
-                      <b>150gm</b>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
           <div className="col-md-9 col-ms-12">
             <div className="row">
               <div className="col-md-12">
-                <Wishlist />
+                <Wishlist item={wish} total={total_caff} />
               </div>
             </div>
             <div className="row">
               {products.map((product) => (
-                <ProductCard item={product} />
+                <ProductCard item={product} limit={remmining_limit} />
               ))}
             </div>
           </div>

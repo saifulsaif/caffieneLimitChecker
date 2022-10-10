@@ -1,9 +1,16 @@
 import React from "react";
 
 const Header = (props) => {
-  var process = 76;
   var process_color = "progress-bar bg-warning";
   var limit = 500;
+  var process = (100 / limit) * props.caffiene;
+
+  if (process >= 60 && process < 80) {
+    process_color = "progress-bar bg-warning";
+  } else if (process >= 80) {
+    process_color = "progress-bar bg-danger";
+  }
+
   return (
     <div className="row">
       <div className="header">

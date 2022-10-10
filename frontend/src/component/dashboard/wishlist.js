@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-const api_url = process.env.REACT_APP_API_URL;
 
-const Wishlist = () => {
-  const [wish, setWish] = useState([]);
-
-  useEffect(() => {
-    axios.get(api_url + "/wish_list").then((res) => {
-      setWish(res.data.data);
-    });
-  }, []);
-
+const Wishlist = (props) => {
   var total_caff = 0;
-  wish.map((wish) => {
+  props.wish.map((wish) => {
     total_caff += wish.qty * wish.caffiene;
   });
 
@@ -24,7 +14,7 @@ const Wishlist = () => {
           <hr></hr>
           <table responsive>
             <tbody>
-              {wish.map((wish) => (
+              {props.wish.map((wish) => (
                 <tr>
                   <td>
                     <img class="card-img-top" src={wish.image} />

@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Home from "./pages/Home";
-import Header from "./component/dashboard/Header";
+import Header from "./pages/Header";
 import OverviewCard from "./pages/OverviewCard";
 
 function App() {
+  const [caffiene, setCaffiene] = useState(0);
+  const getData = (data) => {
+    console.log(data);
+    setCaffiene(data);
+  };
+
   return (
     <>
-      <Header />
-      <OverviewCard />
-      <Home />
+      <Header caffiene={caffiene} />
+      <OverviewCard caffiene={caffiene} />
+      <Home consume={getData} />
     </>
   );
 }

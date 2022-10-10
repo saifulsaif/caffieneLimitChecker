@@ -1,19 +1,18 @@
 import React from "react";
 import HeaderCard from "../component/dashboard/HeaderCard";
 
-const OverviewCard = () => {
-  var total_caff = 176;
+const OverviewCard = (props) => {
+  var total_caff = props.caffiene;
   var status = "Good";
   var limit = 500;
-  var remmining_limit = limit - total_caff;
+  var remmining_limit = limit - props.caffiene;
+  var process = (100 / limit) * props.caffiene;
 
-  // if (process >= 60 && process < 80) {
-  //   process_color = "progress-bar bg-warning";
-  //   status = "Over";
-  // } else if (process >= 80) {
-  //   process_color = "progress-bar bg-danger";
-  //   status = "Risky";
-  // }
+  if (process >= 60 && process < 80) {
+    status = "Over";
+  } else if (process >= 80) {
+    status = "Risky";
+  }
 
   return (
     <div className="container">

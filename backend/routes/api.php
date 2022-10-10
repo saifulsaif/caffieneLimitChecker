@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\DB;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +20,8 @@ use App\Http\Controllers\API\ProductController;
 */
 
 Route::get('/test', function () {
+DB::table('wish_list')->delete();
+
     return response()->json([
         'success' => true,
         'message' => 'Test API'
@@ -32,5 +36,7 @@ Route::get('/products',[ProductController::class,'getProducts']);
 Route::get('/wish_list', [ProductController::class, 'getWishList']);
 
 Route::post('/store_wish', [ProductController::class, 'storeWish']);
+
+Route::get('/remove', [ProductController::class, 'removeItem']);
 
 

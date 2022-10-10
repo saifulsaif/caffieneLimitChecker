@@ -119,3 +119,20 @@ table {
     width: 50%;
     text-align: right;
 }
+.wish-header {
+    display: flex;
+
+}
+
+.wish-header h5 {
+    width: 50%;
+}
+
+.btn-danger {
+    width: 130px;
+}
+
+.wish-header-button {
+    width: 50%;
+    text-align: right;
+}

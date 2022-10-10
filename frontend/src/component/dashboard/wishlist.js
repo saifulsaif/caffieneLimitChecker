@@ -1,14 +1,30 @@
+import axios from "axios";
+const api_url = process.env.REACT_APP_API_URL;
+
 const Wishlist = (props) => {
   var total_caff = 0;
   props.wish.map((wish) => {
     total_caff += wish.qty * wish.caffiene;
   });
 
+  const refresh = () => {
+    axios.get(api_url + "/test").then((res) => {
+      window.location.reload();
+    });
+  };
+
   return (
     <div className="row">
       <div className="col-md-12">
         <div className="card wish-card mt-md-0 mt-5">
-          <h5>Favorite Caffienes</h5>
+          <div className="wish-header">
+            <h5>Favorite Caffienes</h5>{" "}
+            <div className="wish-header-button">
+              <button onClick={() => refresh()} className="btn btn-danger">
+                Remove Items
+              </button>
+            </div>
+          </div>
           <hr></hr>
           <table responsive>
             <tbody>

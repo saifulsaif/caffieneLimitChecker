@@ -85,4 +85,21 @@ class ProductController extends Controller
          }
     }
 
+    public function removeItem(){
+    dd('dsf');
+       $isDelete = Wish::delete();
+        if($isDelete){
+            return response()->json([
+                    'success' => true,
+                    'message' => 'Refresh successfully!',
+                ]);
+        }else{
+            return response()->json([
+                'success' => false,
+                'message' => 'Something went wrong!'
+            ]);
+        }
+  
+    }
+
 }

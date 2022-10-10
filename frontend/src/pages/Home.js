@@ -16,7 +16,7 @@ const Home = (props) => {
 
   const getData = (data) => {
     fetch_data();
-    props.consume(consume + data);
+    props.consume(parseInt(consume) + parseInt(data));
   };
 
   useEffect(() => {

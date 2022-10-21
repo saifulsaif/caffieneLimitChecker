@@ -9,8 +9,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\URL;
 
+//    Top of the controller call/ use  all models and 
+
 class ProductController extends Controller
 {
+
+    // Get Products function used for get all products for select to wishlish
+    // Map the product to replace product image usl
+    // response a json products list if not exists product return [] 
 
     public function getProducts()
     {
@@ -35,6 +41,9 @@ class ProductController extends Controller
 
     }
 
+    // GetwishList functions used for get all wishlist product to user instant
+    // Here join with product table to get product informtion
+    // Return wishlist or [] array
     public function getWishList(){
         
         $url = URL::to('/');
@@ -60,6 +69,10 @@ class ProductController extends Controller
     }
 
 
+    //Store wish list used for add product to wish list instant
+    // when user click on add button then this function call
+    // Its return a success of fail message 
+
     public function storeWish(Request $request){
         try{
 
@@ -84,9 +97,12 @@ class ProductController extends Controller
                ]);
          }
     }
+   
+    // This funcation remove product form wishlist
+    // User click on remove button to refresh the wish list to test again 
+    // return a successful message or warning
 
     public function removeItem(){
-    dd('dsf');
        $isDelete = Wish::delete();
         if($isDelete){
             return response()->json([

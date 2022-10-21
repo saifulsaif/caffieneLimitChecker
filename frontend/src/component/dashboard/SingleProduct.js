@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const api_url = process.env.REACT_APP_API_URL;
 
+/* 
+ Here i generate product card to show the product main component.
+ click on ADD button calculate the consume limit and pass to header component
+ update wishlist and product card get product limit 
+*/
+
 const SingleProduct = (props) => {
   const [products, setProducts] = useState([]);
 

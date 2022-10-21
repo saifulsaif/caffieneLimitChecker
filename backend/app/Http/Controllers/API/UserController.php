@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\URL;
 
 class UserController extends Controller
 {
+    
+    //  'User API' used for get user profile information 
+    // Call User model for communicate with user table 
+    // This application don't have auth so i don't need 
+    // Autherntication middleware
+    // response success status and user DATA
 
     public function user()
     {

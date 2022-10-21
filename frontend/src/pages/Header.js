@@ -1,5 +1,11 @@
 import React from "react";
 
+/* 
+  <Header /> component show the progress bar 
+  where user can get instant waring how much user can comsure.
+  click on add button the progress bar update instantly
+*/
+
 const Header = (props) => {
   var process_color = "progress-bar bg-warning";
   var limit = 500;

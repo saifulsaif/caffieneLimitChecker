@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 const api_url = process.env.REACT_APP_API_URL;
 
+/* 
+  Profile components show user information throught user API
+  Here I call User API to get user profile information
+  return user profile details
+  call from <Home /> components
+*/
+
 const Profile = () => {
   const [profile, setProfile] = useState([]);
 

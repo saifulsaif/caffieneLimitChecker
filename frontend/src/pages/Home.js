@@ -6,6 +6,14 @@ import Wishlist from "../component/dashboard/wishlist";
 import axios from "axios";
 const api_url = process.env.REACT_APP_API_URL;
 
+
+/* 
+   <Home/> This component is the important for the project
+   here i call the API to get product information
+   Call other component to display API products by pass props
+   user 
+*/
+
 const Home = (props) => {
   const [wish, setWish] = useState([]);
 

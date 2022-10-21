@@ -1,6 +1,13 @@
 import React from "react";
 import HeaderCard from "../component/dashboard/HeaderCard";
 
+/* 
+   <OverviewCard /> This component show overall overview or user activity.
+   User caffiene limit, comsume limit and remaining limit also.
+   User current status  Safe / Risky ETC
+   used 4 card to display each informations
+*/
+
 const OverviewCard = (props) => {
   var total_caff = props.caffiene;
   var status = "Good";

@@ -1,5 +1,9 @@
 import React from "react";
 
+/* 
+This component generate the header 4 card with dynamic infomations
+get a props and return full card
+*/
 
 const HeaderCard = (props) => {
   return (

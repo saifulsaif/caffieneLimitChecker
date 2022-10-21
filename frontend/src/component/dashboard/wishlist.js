@@ -1,6 +1,12 @@
 import axios from "axios";
 const api_url = process.env.REACT_APP_API_URL;
 
+/* 
+Wish list to manage use select product to wishlist 
+add / remove / update / remove 
+call API 
+*/
+
 const Wishlist = (props) => {
   var total_caff = 0;
   props.wish.map((wish) => {
